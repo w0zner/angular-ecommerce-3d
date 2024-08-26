@@ -1,0 +1,24 @@
+<div class="position-absolute w-100 h-100 z-1 m-0 p-0 d-flex justify-content-center align-items-center" style="background-color: rgba(0, 0, 0, 0.377);">
+
+  <div class="rounded position-relative bg-white animate__animated animate__bounceIn" style="width: 800px; height: 510px;">
+    <div class="w-100 h-100 p-3">
+      <div class="d-flex justify-content-center border-bottom align-items-center">
+        <h3>Detalle producto - {{producto?.nombre}}</h3>
+
+      </div>
+      <div class="pt-3 pb-3 " style="flex: 1; ">
+
+        <p><b>Descripción:</b> {{producto?.descripcion}}</p>
+
+        <img [src]="producto?.imagen" alt="" style="width: 350px; height: 250px;" class="rounded">
+        <div style="display: inline-flex;">
+          <span class="badge text-bg-light ml-3" style="float: right;">Gs. {{producto?.precio}}</span><p></p>
+        </div>
+      </div>
+      <div class="border-top pt-3">
+        <button class="btn btn-secondary" [routerLink]="['/productos']" style="float: right;">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+</div>

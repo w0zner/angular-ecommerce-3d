@@ -1,0 +1,51 @@
+[
+	{
+	  "id": "1",
+	  "nombre": "Termo Stanley",
+	  "descripcion": "'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English.',",
+	  "precio": "250000,",
+	  "imagen": "https://media.craiyon.com/2023-10-21/1f1d408dddce4984a689afc06d9f42d8.webp"
+	},
+	{
+	  "id": "2",
+	  "nombre": "'Termo Stanley',",
+	  "descripcion": "'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English.',",
+	  "precio": "250000,",
+	  "imagen": "https://png.pngtree.com/thumb_back/fh260/background/20230611/pngtree-wolf-animals-images-wallpaper-for-pc-384x480-image_2916211.jpg"
+	},
+	{
+	  "id": "3",
+	  "nombre": "'Termo Stanley',",
+	  "descripcion": "'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English.',",
+	  "precio": "250000,",
+	  "imagen": "https://marketing4ecommerce.net/wp-content/uploads/2024/02/imagen-generada-con-nightcafe-e1708680739301.jpg"
+	},
+	{
+	  "id": "4",
+	  "nombre": "'Termo Stanley',",
+	  "descripcion": "'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English.',",
+	  "precio": "250000,",
+	  "imagen": "https://24ai.tech/es/wp-content/uploads/sites/5/2023/10/01_product_1_sdelat-kvadratnym-3-1.jpg"
+	},
+	{
+	  "id": "5",
+	  "nombre": "'Termo Stanley',",
+	  "descripcion": "'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English.',",
+	  "precio": "250000,",
+	  "imagen": "https://www.assemblyai.com/blog/content/images/2022/07/How-Imagen-Actually-Works.png"
+	},
+	{
+	  "id": "6",
+	  "nombre": "'Termo Stanley',",
+	  "descripcion": "'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English.',",
+	  "precio": "250000,",
+	  "imagen": "https://lh3.googleusercontent.com/lT9-yJuCXvk2aZlgFnsEBXXd2Ws7hy3BCk1tFX5dUSAS9BfatxVifE6VqakU7brGmuBe0ZhTVnnrZ8h89JTWsDwpZkYzLWjTfDRReRjydtbYnoSrxAQ=h600"
+	},
+	{
+	  "id": "7",
+	  "nombre": "Jarra Stanley",
+	  "descripcion": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using, making it look like readable English.",
+	  "precio": "250000",
+	  "imagen":"https://jsequeiros.com/sites/default/files/imagen-cachorro-comprimir.jpg"
+	}
+]

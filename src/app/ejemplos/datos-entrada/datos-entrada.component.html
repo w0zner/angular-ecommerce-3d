@@ -1,24 +1,25 @@
+<app-inicio></app-inicio>
 <div class="w-100 vh-100 d-flex flex-colum justify-content-center">
-  <div class="mt-5 w-25 h-50 border bg-white p-3">
+  <div class="mt-5 w-25 h-55 border bg-white p-3">
     <h2 class="mb-4">Formulario</h2>
-    <form (submit)="guardar()">
+    <form (submit)="guardar()" [formGroup]="form">
       <div class="mb-3">
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" class="form-control" [(ngModel)]="nombre">
+        <input type="text" name="nombre" class="form-control" formControlName="nombre" required>
       </div>
       <div class="mb-3">
         <label for="apellido">Apellido:</label>
-        <input type="text" name="apellido" class="form-control">
+        <input type="text" name="apellido" class="form-control" formControlName="apellido" required>
       </div>
       <div class="mb-4">
         <label for="edad">Edad:</label>
-        <input type="text" name="edad" class="form-control">
+        <input type="text" name="edad" class="form-control" formControlName="edad" required min=5>
       </div>
       <div class="mb-4">
         <input type="file" name="archivo" class="form-control" (change)="subirArchivo($event)">
       </div>
       <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Guardar</button>
       </div>
     </form>
   </div>

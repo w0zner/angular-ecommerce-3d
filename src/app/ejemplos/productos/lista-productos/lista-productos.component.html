@@ -1,0 +1,16 @@
+<router-outlet></router-outlet>
+<div>
+  <div class="d-flex justify-content-center m4 border-bottom">
+    <h2>Mis productos</h2>
+  </div>
+  <div class="d-flex justify-content-center gap-4 flex-wrap m-5">
+    <div class="card" style="width: 18rem;" *ngFor="let producto of productos">
+      <img src="{{producto.imagen}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{producto.nombre}}</h5>
+        <p class="card-text">{{producto.descripcion}}</p>
+        <p class="card-text">Gs. {{producto.precio}}</p>
+        <a [routerLink]="['/productos', 'detail', producto.id ]" class="btn btn-primary">Detalle</a>
+      </div>
+    </div>
+</div>
