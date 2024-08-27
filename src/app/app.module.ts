@@ -6,9 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DatosEntradaComponent } from './ejemplos/datos-entrada/datos-entrada.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { InicioComponent } from './ejemplos/inicio/inicio.component';
 import { ListaProductosComponent } from './ejemplos/productos/lista-productos/lista-productos.component';
 import { DetalleProductosComponent } from './ejemplos/productos/detalle-productos/detalle-productos.component';
+import { firebaseConfig } from 'src/enviroments/enviroments';
+import { AuthComponent } from './ejemplos/auth/auth.component';
+import { SigninComponent } from './ejemplos/auth/signin/signin.component';
+import { SignupComponent } from './ejemplos/auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +21,17 @@ import { DetalleProductosComponent } from './ejemplos/productos/detalle-producto
     DatosEntradaComponent,
     InicioComponent,
     ListaProductosComponent,
-    DetalleProductosComponent
+    DetalleProductosComponent,
+    AuthComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     AppRoutingModule
   ],
   providers: [],
