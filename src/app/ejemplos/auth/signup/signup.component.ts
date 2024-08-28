@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -6,5 +8,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+
+  signUpForm: FormGroup
+  showAlert: boolean = false
+  errorMessage: string = ""
+
+  constructor(private authService: AuthService, private fb: FormBuilder) {
+    this.signUpForm = fb.group({
+      nombre: [''],
+      email: [''],
+      password: [''],
+      confirmPassword: ['']
+    })
+  }
+
+  registro() {
+    console.log(this.signUpForm.value);
+    this.authService.signUp(this.signUpForm.value.email, this.signUpForm.value.password).then((userCredential) => {
+      console.log(userCredential);
+      this.showAlert = false
+    })
+    .catch((error) => {
+      this.showAlert = true
+      this.errorMessage = error
+    })
+  }
+
+
 
 }

@@ -14,6 +14,7 @@ import { firebaseConfig } from 'src/enviroments/enviroments';
 import { AuthComponent } from './ejemplos/auth/auth.component';
 import { SigninComponent } from './ejemplos/auth/signin/signin.component';
 import { SignupComponent } from './ejemplos/auth/signup/signup.component';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SignupComponent } from './ejemplos/auth/signup/signup.component';
     ReactiveFormsModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth()),
     AppRoutingModule
   ],
   providers: [],

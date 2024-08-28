@@ -1,1 +1,29 @@
-<p>signup works!</p>
+<div class="d-flex justify-content-center align-items-center w-100 vh-100" style="background: linear-gradient(270deg, rgba(50,155,111,1) 0%, rgba(130,233,153,1) 95%, rgba(50,155,111,1) 100%);">
+
+  <form [formGroup]="signUpForm" (submit)="registro()" style="width: 600px; border: 1px solid #fff; box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;" class="p-4 rounded animate__animated animate__fadeIn">
+    <h2 class="text-white fw-light"><p class="text-center">Un gusto tenerte aquí!</p></h2>
+    <div class="alert alert-danger fw-light form-text" role="alert" *ngIf="showAlert">
+      {{errorMessage}}
+    </div>
+    <div class="mb-3">
+      <label for="nombre" class="form-label text-white fw-light">Nombre</label>
+      <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" formControlName="nombre">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label text-white fw-light">Correo electrónico</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+    </div>
+    <div class="mb-4">
+      <label for="exampleInputPassword1" class="form-label text-white fw-light">Contraseña</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+    </div>
+    <div class="mb-4">
+      <label for="confirmarContraseña" class="form-label text-white fw-light">Confirmar Contraseña</label>
+      <input type="password" class="form-control" id="confirmarContraseña" formControlName="confirmPassword">
+    </div>
+    <button type="submit" class="btn btn-outline-light w-100"><span class="fw-light">Registrarme</span></button>
+    <div class="mt-4">
+      <p class="fw-light text-white text-end mb-1">Ya tengo una cuenta. <a [routerLink]="['/auth', 'signin']" style="text-decoration: none;" class="fw-medium text-white">Ingresar</a></p>
+    </div>
+  </form>
+</div>
