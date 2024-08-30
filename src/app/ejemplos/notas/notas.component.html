@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-center gap-2 border-bottom pb-4 m-4">
+  <div class="mb-3" style="width: 700px;">
+    <div class="mb-3">
+      <textarea class="form-control" id="nota" rows="3" placeholder="Ingrese una nota" [(ngModel)]="nota" [disabled]="isLoading"></textarea>
+    </div>
+    <button class="btn btn-primary w-100" (click)="agregar()" [disabled]="nota==''">
+      <span *ngIf="!isSaving">Guardar</span>
+      <span *ngIf="isSaving">Guardando..</span>
+      <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" *ngIf="isSaving">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%"></div>
+      </div>
+    </button>
+    <div style="width: 44rem;" *ngIf="isLoading" class="d-flex justify-content-center">
+      <span  >Aguarde un momento..</span>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex gap-2 flex-wrap justify-content-center">
+
+
+  <div class="alert alert-light" role="alert" *ngIf="!isLoading && notes.length === 0" style="width: 700px;">
+    No hay notas que mostrar
+  </div>
+
+  <div class="card" style="width: 44rem;" *ngFor="let n of notes">
+    <div class="card-body">
+      <h5 class="card-title">Nota <span>{{n.id}}</span></h5>
+      <p class="card-text">{{n.description}}</p>
+      <a class="btn btn-outline-primary m-1" (click)="editar(n)">Editar</a>
+      <a class="btn btn-outline-primary m-1" (click)="eliminarNota(n.id!)">Eliminar</a>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,9 @@ import { AuthComponent } from './ejemplos/auth/auth.component';
 import { SigninComponent } from './ejemplos/auth/signin/signin.component';
 import { SignupComponent } from './ejemplos/auth/signup/signup.component';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { NotasComponent } from './ejemplos/notas/notas.component';
+import { GaleriaComponent } from './ejemplos/galeria/galeria.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     DetalleProductosComponent,
     AuthComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    NotasComponent,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
     AppRoutingModule
   ],
   providers: [],

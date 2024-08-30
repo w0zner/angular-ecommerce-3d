@@ -7,6 +7,8 @@ import { DetalleProductosComponent } from './ejemplos/productos/detalle-producto
 import { AuthComponent } from './ejemplos/auth/auth.component';
 import { SigninComponent } from './ejemplos/auth/signin/signin.component';
 import { SignupComponent } from './ejemplos/auth/signup/signup.component';
+import { NotasComponent } from './ejemplos/notas/notas.component';
+import { GaleriaComponent } from './ejemplos/galeria/galeria.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path: 'auth', component: AuthComponent, children: [
     {path: 'signin', component: SigninComponent},
     {path: 'signup', component: SignupComponent}
-  ]}
+  ]},
+  {path: 'notas', component: NotasComponent},
+  {path: 'galeria', component: GaleriaComponent}
 ];
 
 @NgModule({
