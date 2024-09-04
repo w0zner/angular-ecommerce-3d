@@ -1,18 +1,27 @@
 <div class="d-flex justify-content-center  gap-2 flex-wrap border-bottom pb-4 m-4">
   <div class="input-group w-50">
-    <input type="file" class="form-control" name="file" accept="images/*">
-    <button class="btn btn-primary">Guardar</button>
+    <input type="file" class="form-control" name="file" accept="images/*" (change)="getSelectedFile($event)">
+    <button class="btn btn-primary" (click)="subirArchivo()">Guardar</button>
+  </div>
+  <div class="alert alert-light w-50" role="alert" *ngIf="isLoading" style="width: 700px; text-align: center;">
+    <span>Aguarde un momento..</span>
+    <div class="progress mt-2">
+      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
   </div>
 </div>
 
 <div class="d-flex gap-2 flex-wrap justify-content-center">
 
-  <div class="card" style="width: 16rem;">
+  <div class="alert alert-light" role="alert" *ngIf="!isLoading && photos.length === 0" style="width: 700px;">
+    No hay notas que mostrar
+  </div>
+  <div class="card" style="width: 16rem;" *ngFor="let photo of photos">
     <div class="card-body">
-      <img src="https://lh3.googleusercontent.com/proxy/oRbW1MmxaXD1vC1duTUa-cihkfTfDZgZGgFv6e7L-3Z8DJiZHvcZIBvWaxwcrS9npZDtCgCA8XoMQlghulOgz6hKMiaDbBbiyeF9VKurKgQSaEoYfsgsiPfSUZp7BDSvlXJ8LlJU" alt="" style="height: 220px; object-fit: cover;">
-      <h5 class="card-title pt-1">Nombre del archivo</h5>
-      <p class="card-text">Texto</p>
-      <a class="btn btn-outline-primary m-1 w-100">Eliminar</a>
+      <img src="{{photo.url}}" alt="" style="height: 220px; object-fit: cover;">
+      <h5 class="card-title pt-1">{{photo.OriginalFileName}}</h5>
+      <p class="card-text">{{photo.fileName}}</p>
+      <a class="btn btn-outline-primary m-1 w-100" (click)="elimiarArchivo(photo)">Eliminar</a>
     </div>
   </div>
 </div>

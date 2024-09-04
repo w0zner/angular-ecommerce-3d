@@ -9,6 +9,7 @@ import { SigninComponent } from './ejemplos/auth/signin/signin.component';
 import { SignupComponent } from './ejemplos/auth/signup/signup.component';
 import { NotasComponent } from './ejemplos/notas/notas.component';
 import { GaleriaComponent } from './ejemplos/galeria/galeria.component';
+import { VisorComponent } from './ejemplos/visor/visor.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -23,7 +24,8 @@ const routes: Routes = [
     {path: 'signup', component: SignupComponent}
   ]},
   {path: 'notas', component: NotasComponent},
-  {path: 'galeria', component: GaleriaComponent}
+  {path: 'galeria', component: GaleriaComponent},
+  {path: 'visor', component: VisorComponent}
 ];
 
 @NgModule({
