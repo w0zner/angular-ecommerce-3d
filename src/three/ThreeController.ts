@@ -1,6 +1,13 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+//import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+//import { OrbitControls } from 'three/addons/controls/OrbitControls';
+//import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+//import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+
+import { OrbitControls } from 'three-stdlib';
+import { GLTFLoader } from 'three-stdlib';
+import { RoomEnvironment } from 'three-stdlib/environments/RoomEnvironment'
 
 export default class ThreeController {
 
@@ -16,12 +23,15 @@ export default class ThreeController {
     this.container = _container
 
     this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0xffffff)
     this.camera = new THREE.PerspectiveCamera( 75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000 );
-    this.camera.position.z=5;
+    this.camera.position.z=2;
     this.renderer = new THREE.WebGLRenderer({antialias: true});
     this.renderer.setSize( this.container.clientWidth, this.container.clientHeight );
     this.renderer.setAnimationLoop(() => { this.animate() })
     this.container.appendChild( this.renderer.domElement );
+
+
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 
@@ -38,7 +48,7 @@ export default class ThreeController {
     this.loader.load(url, (gltf)=> {
       this.scene.add(gltf.scene)
     })
-  }
+  } 
 
   animate(){
     this.renderer.render(this.scene, this.camera)
