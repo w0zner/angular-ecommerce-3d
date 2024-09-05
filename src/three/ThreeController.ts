@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export default class ThreeController {
 
@@ -6,6 +8,8 @@ export default class ThreeController {
   scene!: THREE.Scene;
   camera!: THREE.PerspectiveCamera
   renderer!: THREE.WebGLRenderer;
+  controls!: OrbitControls
+  loader!: GLTFLoader
 
 
   constructor(_container: HTMLDivElement){
@@ -19,11 +23,21 @@ export default class ThreeController {
     this.renderer.setAnimationLoop(() => { this.animate() })
     this.container.appendChild( this.renderer.domElement );
 
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+
+    this.loader = new GLTFLoader()
+
     //prueba con un cubo
-    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    /* const geometry = new THREE.BoxGeometry( 1, 1, 1 );
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh( geometry, material );
-    this.scene.add( cube );
+    this.scene.add( cube ); */
+  }
+
+  loadModel(url: string) {
+    this.loader.load(url, (gltf)=> {
+      this.scene.add(gltf.scene)
+    })
   }
 
   animate(){
