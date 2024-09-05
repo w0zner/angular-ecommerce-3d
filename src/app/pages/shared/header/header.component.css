@@ -1,0 +1,18 @@
+.custom-header {
+  background-color: red;
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.categories {
+  background-color: rgb(56, 182, 98);
+}
+
+
+.categories a {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  padding: 10px;
+}

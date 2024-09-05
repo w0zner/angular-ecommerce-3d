@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Model } from '../interfaces/model.interface';
 import ThreeController from 'src/three/ThreeController';
 
@@ -8,9 +8,18 @@ import ThreeController from 'src/three/ThreeController';
   templateUrl: './visor.component.html',
   styleUrls: ['./visor.component.css']
 })
-export class VisorComponent {
+export class VisorComponent implements OnInit {
 
-  models: Model[] =[
+models: Model[] = []
+
+ngOnInit(): void {
+  setTimeout(()=> {
+    this.getModels()
+  }, 1000)
+}
+
+getModels() {
+  this.models = [
     {
       id: '1',
       url: 'assets/models/table.glb',
@@ -28,12 +37,17 @@ export class VisorComponent {
     }
   ]
 
-  ngAfterViewInit(){
-    for (let model of this.models) {
-      let container = document.getElementById(model.id) as HTMLDivElement
-      let three = new ThreeController(container)
-      three.loadModel(model.url)
-    }
+  setTimeout(()=>{
+    this.setModelToContainer()
+  }, 1000)
+}
+
+setModelToContainer(){
+  for (let model of this.models) {
+    let container = document.getElementById(model.id) as HTMLDivElement
+    let three = new ThreeController(container)
+    three.loadModel(model.url)
   }
-  
+}
+
 }

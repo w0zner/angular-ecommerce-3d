@@ -4,36 +4,32 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DatosEntradaComponent } from './ejemplos/datos-entrada/datos-entrada.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { InicioComponent } from './ejemplos/inicio/inicio.component';
-import { ListaProductosComponent } from './ejemplos/productos/lista-productos/lista-productos.component';
-import { DetalleProductosComponent } from './ejemplos/productos/detalle-productos/detalle-productos.component';
 import { firebaseConfig } from 'src/enviroments/enviroments';
-import { AuthComponent } from './ejemplos/auth/auth.component';
-import { SigninComponent } from './ejemplos/auth/signin/signin.component';
-import { SignupComponent } from './ejemplos/auth/signup/signup.component';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
-import { NotasComponent } from './ejemplos/notas/notas.component';
-import { GaleriaComponent } from './ejemplos/galeria/galeria.component';
-import { VisorComponent } from './ejemplos/visor/visor.component';
+import { HeaderComponent } from './pages/shared/header/header.component';
+import { FooterComponent } from './pages/shared/footer/footer.component';
+import { SignInEcommerceComponent } from './pages/auth/sign-in-ecommerce/sign-in-ecommerce.component';
+import { SignUpEcommerceComponent } from './pages/auth/sign-up-ecommerce/sign-up-ecommerce.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProductListComponent } from './pages/products/product-list/product-list.component';
+import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
+import { ProductUploadComponent } from './pages/products/product-upload/product-upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DatosEntradaComponent,
-    InicioComponent,
-    ListaProductosComponent,
-    DetalleProductosComponent,
-    AuthComponent,
-    SigninComponent,
-    SignupComponent,
-    NotasComponent,
-    GaleriaComponent,
-    VisorComponent
+    HeaderComponent,
+    FooterComponent,
+    SignInEcommerceComponent,
+    SignUpEcommerceComponent,
+    HomeComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    ProductUploadComponent,
   ],
   imports: [
     BrowserModule,
