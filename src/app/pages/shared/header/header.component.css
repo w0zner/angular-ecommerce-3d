@@ -1,13 +1,19 @@
 .custom-header {
-  background-color: red;
-  height: 70px;
+  height: 60px;
   width: 100vw;
   display: flex;
   justify-content: space-between;
 }
 
+.header-logo {
+  font-weight: bolder;
+}
+
 .categories {
-  background-color: rgb(56, 182, 98);
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
 }
 
 
@@ -15,4 +21,48 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
   padding: 10px;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}
+
+.categories a:hover {
+  background-color: rgba(121, 209, 121, 0.397);
+  box-shadow: 0px 5px 16px 0px darkseagreen;
+}
+
+.custom-header img {
+  width: 50px;
+  cursor: pointer;
+}
+
+.options {
+  margin-top: 3px;
+  margin-right: 5px;
+  position: relative;
+  display: inline-block;
+}
+
+.options-content {
+  display: none;
+  position: absolute;
+  box-shadow: 0px 10px 16px 0px rgba(0, 0, 0, 0.247);
+  min-width: 100px;
+  z-index: 1;
+  left: -120px;
+}
+
+.options-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.options:hover .options-content {
+  display: block;
+}
+
+.options-content a:hover {
+  background-color: darkseagreen;
 }
