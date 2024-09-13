@@ -1,6 +1,6 @@
 .main-content-content {
   width: 100vw;
-  margin-top: 80px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,6 +12,7 @@
   align-items: center;
   gap: 20px;
   font-size: 20px;
+  padding-top: 30px;
 }
 
 .category-info label:first-child {
@@ -20,7 +21,8 @@
 }
 
 .category-info button {
-  background-color: darkseagreen;
+  background-color: #905010;
+  box-shadow: 0px 3px 5px 0px #905010;
   border-radius: 5px;
   outline: none;
   border: none;
@@ -31,7 +33,7 @@
 }
 
 .category-info button:hover {
-  box-shadow: 0px 5px 16px 0px darkseagreen;
+  box-shadow: 0px 5px 16px 0px #5c330a;
 }
 
 .categories {
@@ -58,7 +60,7 @@ object-fit: cover;
 }
 
 .category-content img:hover {
-  box-shadow: 5px 10px 16px 5px antiquewhite;
+  box-shadow: 5px 10px 16px 5px rgba(0, 0, 0, 0.247);
 }
 
 .info {

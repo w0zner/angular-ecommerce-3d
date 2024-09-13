@@ -13,6 +13,7 @@
 
 .header-logo {
   font-weight: bolder;
+  color: #5c330a;
 }
 
 .categories {
@@ -34,8 +35,8 @@
 
 .categories a:hover {
   color: white;
-  background-color: darkseagreen ;
-  box-shadow: 0px 5px 16px 0px darkseagreen;
+  background-color: #905010 ;
+  box-shadow: 0px 5px 16px 0px #5c330a;
 }
 
 .custom-header img {
@@ -74,5 +75,5 @@
 
 .options-content a:hover {
   color: white;
-  background-color: darkseagreen;
+  background-color: #905010;
 }
