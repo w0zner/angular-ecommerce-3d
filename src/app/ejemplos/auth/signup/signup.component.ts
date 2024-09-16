@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthExampleService } from 'src/app/services/authExampleservice';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +13,7 @@ export class SignupComponent {
   showAlert: boolean = false
   errorMessage: string = ""
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(private authService: AuthExampleService, private fb: FormBuilder) {
     this.signUpForm = fb.group({
       nombre: [''],
       email: [''],

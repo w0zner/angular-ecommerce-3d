@@ -1,24 +1,19 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, UserCredential, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from '@angular/fire/auth'
+import { Auth, UserCredential, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '@angular/fire/auth'
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthExampleService {
 
   private auth: Auth = inject(Auth)
 
   constructor() { }
 
-  signUp(fullname: string, email: string, password: string): Promise<UserCredential> {
+  signUp(email: string, password: string): Promise<UserCredential> {
     return new Promise(async (resolve, reject) => {
       try {
         let userCredential = await createUserWithEmailAndPassword(this.auth, email, password)
-
-        if(userCredential.user) {
-          await updateProfile(userCredential.user, {displayName: fullname})
-        }
-
         resolve(userCredential)
       } catch(error: any) {
         let message = error.message //.replace("FirebaseError: Firebase:", "")
