@@ -7,6 +7,7 @@ import { ProductDetailComponent } from './pages/products/product-detail/product-
 import { SignInEcommerceComponent } from './pages/auth/sign-in-ecommerce/sign-in-ecommerce.component';
 import { SignUpEcommerceComponent } from './pages/auth/sign-up-ecommerce/sign-up-ecommerce.component';
 import { ProductUploadComponent } from './pages/products/product-upload/product-upload.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'ejemplos',
@@ -21,7 +22,7 @@ const routes: Routes = [
       {path: 'signup', component: SignUpEcommerceComponent}
     ]
   },
-  {path: 'upload', component: ProductUploadComponent}
+  {path: 'upload', component: ProductUploadComponent, canActivate: [authGuard]}
 ];
 
 @NgModule({

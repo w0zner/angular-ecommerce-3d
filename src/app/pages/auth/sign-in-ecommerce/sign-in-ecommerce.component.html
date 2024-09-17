@@ -1,15 +1,20 @@
 <div class="custom-auth">
   <div class="custom-forms">
     <h3><b>Iniciar Sesión</b></h3>
-    <div class="custom-form">
-      <label for="">Correo electrónico</label>
-      <input type="email">
+    <div class="error-info" role="alert" *ngIf="showAlert">
+      {{errorMessage}}
     </div>
-    <div class="custom-form">
-      <label for="">Contraseña</label>
-      <input type="password">
-    </div>
-    <button class="custom-btn">Iniciar Sesión</button>
-    <label>No tienes cuenta? <span class="register-btn">Crear una cuenta</span></label>
+    <form [formGroup]="signInForm" (ngSubmit)="iniciarSesion()">
+      <div class="custom-form">
+        <label for="">Correo electrónico</label>
+        <input type="email" formControlName="email">
+      </div>
+      <div class="custom-form">
+        <label for="">Contraseña</label>
+        <input type="password" formControlName="password">
+      </div>
+      <button type="submit" class="custom-btn">Iniciar Sesión</button>
+    </form>
+    <label>No tienes cuenta? <a [routerLink]="['/signup']" class="register-btn">Crear una cuenta</a></label>
   </div>
 </div>

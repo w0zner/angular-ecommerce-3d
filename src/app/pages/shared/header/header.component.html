@@ -7,14 +7,14 @@
   <a href="">Iluminación</a>
 </div>
 <div>
-  <label for="">Rodrigo Ramirez</label>
+  <label for="">{{fullName}}</label>
 
   <div class="options">
     <img src="assets/icons/user.svg" alt="">
     <div class="options-content animate__animated animate__fadeIn">
-      <a [routerLink]="['/signin']">Iniciar sesión</a>
-      <a [routerLink]="">Subir producto 3D</a>
-      <a [routerLink]="">Cerrar sesión</a>
+      <a [routerLink]="['/signin']" *ngIf="fullName==''">Iniciar sesión</a>
+      <a [routerLink]="['/upload']" *ngIf="fullName">Subir producto 3D</a>
+      <a (click)="cerrarSesion()" *ngIf="fullName">Cerrar sesión</a>
     </div>
   </div>
 </div>

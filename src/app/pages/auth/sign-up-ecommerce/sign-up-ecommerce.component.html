@@ -1,19 +1,24 @@
 <div class="custom-auth">
   <div class="custom-forms">
     <h3><b>Crear cuenta</b></h3>
-    <div class="custom-form">
-      <label for="">Nombre completo</label>
-      <input type="text">
+    <div class="error-info" role="alert" *ngIf="showAlert">
+      {{errorMessage}}
     </div>
-    <div class="custom-form">
-      <label for="">Correo electrónico</label>
-      <input type="email">
-    </div>
-    <div class="custom-form">
-      <label for="">Contraseña</label>
-      <input type="password">
-    </div>
-    <button class="custom-btn">Registrarse</button>
-    <label>Ya tengo una cuenta <span class="register-btn">Iniciar sesión</span></label>
+    <form [formGroup]="signUpForm" (ngSubmit)="registrarse()">
+      <div class="custom-form">
+        <label for="">Nombre completo</label>
+        <input type="text" formControlName="fullName">
+      </div>
+      <div class="custom-form">
+        <label for="">Correo electrónico</label>
+        <input type="email" formControlName="email">
+      </div>
+      <div class="custom-form">
+        <label for="">Contraseña</label>
+        <input type="password" formControlName="password">
+      </div>
+      <button class="custom-btn" type="submit">Registrarse</button>
+    </form>
+    <label>Ya tengo una cuenta, <a [routerLink]="['/signin']" class="register-btn">Iniciar sesión</a></label>
   </div>
 </div>
