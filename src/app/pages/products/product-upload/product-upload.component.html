@@ -28,14 +28,14 @@
         <input type="text">
       </div>
       <div class="custom-form" style="margin-top: 15px; margin-bottom: 15px;">
-        <div class="file">
+        <div class="file" (click)="loadFile()">
           <a>Seleccionar modelo 3D</a>
         </div>
       </div>
-      <button class="custom-btn">Subir</button>
+      <button class="custom-btn" (click)="capturaPantalla()">Subir</button>
     </div>
-    <div class="viewer">
-      <img src="assets/images/todo.webp" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="viewer" id="viewer">
+      <!-- <img src="assets/images/todo.webp" style="width: 100%; height: 100%; object-fit: cover;"> -->
     </div>
   </div>
 </div>

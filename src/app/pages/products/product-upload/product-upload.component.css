@@ -55,5 +55,6 @@
 }
 
 .viewer {
-  background-color: aquamarine;
+  border: 1px solid black;
+  cursor: grab;
 }

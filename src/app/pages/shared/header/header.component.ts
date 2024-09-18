@@ -9,15 +9,27 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   fullName: string = ""
+  isLogged: Boolean = false
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+
+    /* this.authService.fullName$.subscribe({
+     next: (name) => {
+       console.log('value ',name);
+       this.fullName = name ? name : '';
+     }
+   }) */
+  }
 
   ngOnInit(): void {
+    this.isLogged = this.authService.checkUserSession()
     this.authService.fullName$.subscribe({
       next: (name) => {
-        this.fullName = name
+        console.log('value ',name);
+        this.fullName = name ? name : '';
       }
     })
+    //this.fullName = this.authService.name
   }
 
   cerrarSesion() {

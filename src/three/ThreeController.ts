@@ -12,12 +12,13 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 
 export default class ThreeController {
 
-  container!: HTMLDivElement
-  scene!: THREE.Scene;
-  camera!: THREE.PerspectiveCamera
-  renderer!: THREE.WebGLRenderer;
-  controls!: OrbitControls
-  loader!: GLTFLoader
+  private container!: HTMLDivElement
+  private scene!: THREE.Scene;
+  private camera!: THREE.PerspectiveCamera
+  private renderer!: THREE.WebGLRenderer;
+  private controls!: OrbitControls
+  private loader!: GLTFLoader
+  private model: THREE.Object3D | null = null
 
   constructor(_container: HTMLDivElement){
     this.container = _container
@@ -36,6 +37,7 @@ export default class ThreeController {
     this.scene.environment = paramGenerator.fromScene(environment).texture
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+    this.controls.enablePan = false;
 
     this.loader = new GLTFLoader()
 
@@ -47,13 +49,58 @@ export default class ThreeController {
   }
 
   loadModel(url: string) {
+
+    if(this.model != null){
+      this.scene.remove(this.model)
+    }
+
     this.loader.load(url, (gltf)=> {
-      this.scene.add(gltf.scene)
+      this.model = gltf.scene
+      var data = this.getSizeObject(this.model)
+      this.orbitConfig(data)
+      this.scene.add(this.model)
     })
   }
 
-  animate(){
+  private orbitConfig(data:any) {
+    var maxSide = Math.max(data.width, data.height, data.depth)
+    this.camera.position.set(0, data.center.y, (maxSide * 1.3))
+    this.controls.target = data.center
+  }
+
+  private animate(){
     this.renderer.render(this.scene, this.camera)
+  }
+
+  //Helpers
+  private getSizeObject(obj: THREE.Object3D) {
+    let box = new THREE.Box3().setFromObject(obj)
+    var centerPosition = new THREE.Vector3()
+    box.getCenter(centerPosition)
+
+    let width = box.max.x - box.min.x
+    let height = box.max.y - box.min.y
+    let depth = box.max.z - box.min.z
+
+    return {
+      width: width,
+      height: height,
+      depth: depth,
+      center: centerPosition
+    }
+  }
+
+  makeScreenshot():Promise<File> {
+    return new Promise((resolve, reject) => {
+      this.renderer.render(this.scene, this.camera)
+      this.renderer.domElement.toBlob((blob: Blob | null) => {
+        if(blob) {
+          resolve(new File([blob], "screenshot.png"))
+        } else {
+          reject("Error al tomar captura de pantalla")
+        }
+      })
+    })
   }
 
 }
