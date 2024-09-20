@@ -18,6 +18,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductListComponent } from './pages/products/product-list/product-list.component';
 import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
 import { ProductUploadComponent } from './pages/products/product-upload/product-upload.component';
+import { LoadingComponent } from './pages/shared/loading/loading.component';
+import { MainContentComponent } from './pages/main-content/main-content.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { ProductUploadComponent } from './pages/products/product-upload/product-
     ProductListComponent,
     ProductDetailComponent,
     ProductUploadComponent,
+    LoadingComponent,
+    MainContentComponent
   ],
   imports: [
     BrowserModule,

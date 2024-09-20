@@ -16,8 +16,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent,
   children: [
       {path:'', component: MainContentComponent},
-      {path:'products', component: ProductListComponent},
-      {path: 'produt', component: ProductDetailComponent},
+      {path:'products/:categoryid', component: ProductListComponent},
+      {path: 'product/:id', component: ProductDetailComponent},
       {path: 'signin', component: SignInEcommerceComponent},
       {path: 'signup', component: SignUpEcommerceComponent}
     ]

@@ -14,6 +14,13 @@
 .header-logo {
   font-weight: bolder;
   color: #5c330a;
+  cursor: pointer;
+}
+
+.header-logo:hover {
+  padding-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 30px 25px 0px antiquewhite;
 }
 
 .categories {
@@ -34,10 +41,11 @@
 }
 
 .categories a:hover {
-  color: white;
-  background-color: #905010 ;
-  box-shadow: 0px 5px 16px 0px #5c330a;
+  color: black;
+  background-color: antiquewhite;
+  box-shadow: 0px 3px 16px 0px #5c330a;
 }
+/* 5c330a */
 
 .custom-header img {
   width: 50px;

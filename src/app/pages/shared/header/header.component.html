@@ -1,10 +1,7 @@
 <header class="custom-header">
-<h1 class="header-logo">Decora 3D</h1>
+<h1 class="header-logo" [routerLink]="['']">Decora 3D</h1>
 <div class="categories">
-  <a href="">Todo</a>
-  <a href="">Muebles</a>
-  <a href="">Almohadas Decorativas</a>
-  <a href="">Iluminación</a>
+  <a [routerLink]="['products', cat.id]" *ngFor="let cat of categories">{{cat.name}}</a>
 </div>
 <div>
   <label for="">{{fullName}}</label>

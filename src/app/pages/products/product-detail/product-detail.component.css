@@ -58,3 +58,8 @@
   display: flex;
   justify-content: center;
 }
+
+.viewer {
+  border: 1px solid black;
+  cursor: grab;
+}

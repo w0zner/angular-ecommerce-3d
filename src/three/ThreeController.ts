@@ -24,7 +24,7 @@ export default class ThreeController {
     this.container = _container
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xCCCCCC)
+    this.scene.background = new THREE.Color(0xFFFFFF)
     this.camera = new THREE.PerspectiveCamera( 75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000 );
     this.camera.position.z=3;
     this.renderer = new THREE.WebGLRenderer({antialias: true});
@@ -50,9 +50,7 @@ export default class ThreeController {
 
   loadModel(url: string) {
 
-    if(this.model != null){
-      this.scene.remove(this.model)
-    }
+    this.clear()
 
     this.loader.load(url, (gltf)=> {
       this.model = gltf.scene
@@ -60,6 +58,12 @@ export default class ThreeController {
       this.orbitConfig(data)
       this.scene.add(this.model)
     })
+  }
+
+  clear() {
+    if(this.model != null){
+      this.scene.remove(this.model)
+    }
   }
 
   private orbitConfig(data:any) {

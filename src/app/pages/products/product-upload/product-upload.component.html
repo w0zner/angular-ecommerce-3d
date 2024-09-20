@@ -1,41 +1,49 @@
+<app-loading *ngIf="guardando"></app-loading>
+
 <div class="custom-upload">
   <div class="upload-content">
-    <div class="custom-forms">
+    <form class="custom-forms" [formGroup]="productForm" (ngSubmit)="registerProduct()">
       <h1>Decora3D</h1>
       <div class="custom-form">
         <label>Nombre del producto</label>
-        <input type="text">
+        <input type="text" formControlName="name">
       </div>
       <div class="custom-form">
         <label>Categoria</label>
-        <select name="" id="">
-          <option value="">Todo</option>
-          <option value="">Muebles</option>
-          <option value="">Almohadas decorativas</option>
-          <option value="">Iluminación</option>
+        <select name="" id="" formControlName="category">
+          <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
         </select>
       </div>
       <div class="custom-form">
         <label>Precio</label>
-        <input type="number">
+        <input type="number" formControlName="price">
       </div>
       <div class="custom-form">
         <label>Cantidad</label>
-        <input type="number">
+        <input type="number" formControlName="quantity">
       </div>
       <div class="custom-form">
         <label>Descripción</label>
-        <input type="text">
+        <input type="text" formControlName="description">
       </div>
       <div class="custom-form" style="margin-top: 15px; margin-bottom: 15px;">
         <div class="file" (click)="loadFile()">
           <a>Seleccionar modelo 3D</a>
         </div>
       </div>
-      <button class="custom-btn" (click)="capturaPantalla()">Subir</button>
-    </div>
+      <button class="custom-btn" type="submit">
+        <span *ngIf="!guardando">Subir</span>
+        <span *ngIf="guardando">Subiendo</span>
+        <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" *ngIf="guardando">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" style="width: 100%"></div>
+        </div>
+      </button>
+      <div class="success-info" role="alert" *ngIf="showMessage">
+        {{message}}
+      </div>
+    </form>
     <div class="viewer" id="viewer">
-      <!-- <img src="assets/images/todo.webp" style="width: 100%; height: 100%; object-fit: cover;"> -->
+      <!-- <img src="assets/images/todo.webp" style="width: 100%; height: 100%; object-fit: cover;"> (click)="capturaPantalla()" -->
     </div>
   </div>
 </div>

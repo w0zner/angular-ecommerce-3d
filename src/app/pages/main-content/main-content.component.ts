@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {CATEGORIES} from '../../../app/constants/constants'
+
 
 @Component({
   selector: 'app-main-content',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-content.component.css']
 })
 export class MainContentComponent {
+
+  categories = CATEGORIES
 
 }

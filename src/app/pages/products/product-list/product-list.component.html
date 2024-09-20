@@ -2,34 +2,16 @@
   <div>
     <label class="category-name">TODO</label>
   </div>
-  <div class="products">
-    <div class="custom-card">
-      <img src="assets/images/todo.webp" alt="">
+  <div class="products" *ngIf="filteredProducts">
+    <div class="custom-card" *ngFor="let product of filteredProducts" [routerLink]="['../../', 'product', product.id]">
+      <img [src]="product.urlThumbnail">
       <div class="info">
-        <a href="">Nombre del producto</a>
-        <a href="">Precio</a>
+        <a >{{product.name}}</a>
+        <a href="">{{product.price}}</a>
       </div>
     </div>
-    <div class="custom-card">
-      <img src="assets/images/muebles.webp" alt="">
-      <div class="info">
-        <a href="">Nombre del producto</a>
-        <a href="">Precio</a>
-      </div>
-    </div>
-    <div class="custom-card">
-      <img src="assets/images/almohadas_decorativas.webp" alt="">
-      <div class="info">
-        <a href="">Nombre del producto</a>
-        <a href="">Precio</a>
-      </div>
-    </div>
-    <div class="custom-card">
-      <img src="assets/images/iluminacion.webp" alt="">
-      <div class="info">
-        <a href="">Nombre del producto</a>
-        <a href="">Precio</a>
-      </div>
-    </div>
+  </div>
+  <div class="products" *ngIf="filteredProducts.length==0">
+    <span>No hay productos en esta categoría.</span>
   </div>
 </div>

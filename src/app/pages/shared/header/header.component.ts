@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import {CATEGORIES} from '../../../constants/constants'
+
 
 @Component({
   selector: 'app-header',
@@ -10,6 +12,7 @@ export class HeaderComponent implements OnInit {
 
   fullName: string = ""
   isLogged: Boolean = false
+  categories = CATEGORIES
 
   constructor(private authService: AuthService) {
 

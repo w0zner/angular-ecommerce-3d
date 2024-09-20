@@ -5,28 +5,10 @@
     <button class="add-to-cart">Comprar</button>
   </div>
   <div class="categories">
-    <div class="category-content">
-      <img src="assets/images/todo.webp" alt="">
+    <div class="category-content" *ngFor="let cat of categories" >
+      <img [src]="cat.img" alt="" >
       <div class="info">
-        <a href="">Todo</a>
-      </div>
-    </div>
-    <div class="category-content">
-      <img src="assets/images/muebles.webp" alt="">
-      <div class="info">
-        <a href="">Muebles</a>
-      </div>
-    </div>
-    <div class="category-content">
-      <img src="assets/images/almohadas_decorativas.webp" alt="">
-      <div class="info">
-        <a href="">Almohadas decorativas</a>
-      </div>
-    </div>
-    <div class="category-content">
-      <img src="assets/images/iluminacion.webp" alt="">
-      <div class="info">
-        <a href="">Iluminación</a>
+        <a [routerLink]="['products', cat.id]">{{cat.name}}</a>
       </div>
     </div>
   </div>
